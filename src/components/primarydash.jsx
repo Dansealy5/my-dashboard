@@ -9,6 +9,10 @@ import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { PageContainer } from '@toolpad/core/PageContainer';
 import Grid from '@mui/material/Grid2';
+import DataGridDemo from './Transaction';
+import Transactions from './Transaction';
+import RevenueChart from './chart';
+import mockTransactions from './Data';
 
 const NAVIGATION = [
   {
@@ -91,7 +95,7 @@ const Skeleton = styled('div')(({ theme, height }) => ({
   content: '" "',
 }));
 
-export default function DashboardLayoutBasic(props) {
+export default function Dashboard(props) {
   const { window } = props;
 
   const router = useDemoRouter('/dashboard');
@@ -109,38 +113,22 @@ export default function DashboardLayoutBasic(props) {
       <DashboardLayout>
         <PageContainer>
           <Grid container spacing={1}>
-            <Grid size={5} />
-            <Grid size={12}>
-              <Skeleton height={14} />
-            </Grid>
-            <Grid size={12}>
-              <Skeleton height={14} />
+            <Grid size={4}>
+              <p>Sales Obtained</p>
+              <h2>{mockTransactions.length}</h2>
             </Grid>
             <Grid size={4}>
-              <Skeleton height={100} />
+              <Skeleton height={200} />
             </Grid>
-            <Grid size={8}>
-              <Skeleton height={100} />
+            <Grid size={4}>
+              <Skeleton height={200} />
             </Grid>
+            <Grid size={7}>
+              <RevenueChart />
+            </Grid>
+            <Grid size={5}>
+              <Transactions />
 
-            <Grid size={12}>
-              <Skeleton height={150} />
-            </Grid>
-            <Grid size={12}>
-              <Skeleton height={14} />
-            </Grid>
-
-            <Grid size={3}>
-              <Skeleton height={100} />
-            </Grid>
-            <Grid size={3}>
-              <Skeleton height={100} />
-            </Grid>
-            <Grid size={3}>
-              <Skeleton height={100} />
-            </Grid>
-            <Grid size={3}>
-              <Skeleton height={100} />
             </Grid>
           </Grid>
         </PageContainer>
